@@ -8,6 +8,8 @@ Indicateurs suivis (ceux de l'offre : taux de résolution sans intervention et d
 Usage :
     python kpis.py                 # affiche les indicateurs et écrit dashboard.html
     python kpis.py --open          # idem, puis ouvre le tableau de bord dans le navigateur
+    python kpis.py --depuis "2026-10-23 17:00"   # seulement les tickets créés depuis cette date
+    python kpis.py --public        # écrit docs/index.html (GitHub Pages), sans lien vers le site Jira
 """
 
 import argparse
@@ -24,6 +26,7 @@ from setup_queues import CATEGORIES
 from suggest_replies import load_kb
 
 OUTPUT = Path(__file__).parent / "dashboard.html"
+PUBLIC_OUTPUT = Path(__file__).parent / "docs" / "index.html"
 ACK_MARKER = "a bien été reçue"
 SOURCE_RE = re.compile(r"\[Source : (KB-\d+)")
 
@@ -120,7 +123,7 @@ def print_summary(k):
         print(f"  {name:<18} {c['total']:>3} / {c['auto']:>3} / {c['agent']:>3}")
 
 
-def render_html(k, site_url, project):
+def render_html(k, site_url, project, depuis=None):
     cats = k["categories"]
     max_cat = max([c["total"] for c in cats.values()] + [1])
     bars = "".join(
@@ -148,8 +151,14 @@ def render_html(k, site_url, project):
         f"<div class='tile'><div class='t'>{t}</div><div class='v'>{v}</div><div class='s'>{s}</div></div>"
         for t, v, s in tiles
     )
-    queue_url = f"{site_url.rstrip('/')}/jira/servicedesk/projects/{project}/queues"
     now = datetime.now().strftime("%d/%m/%Y %H:%M")
+    meta = [f"Projet {html.escape(project)}"]
+    if depuis:
+        meta.append(f"tickets créés depuis le {html.escape(depuis)}")
+    meta.append(f"mis à jour le {now}")
+    if site_url:
+        queue_url = f"{site_url.rstrip('/')}/jira/servicedesk/projects/{project}/queues"
+        meta.append(f'<a href="{html.escape(queue_url)}">ouvrir les files d\'attente</a>')
     return f"""<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Service desk IT – indicateurs</title>
@@ -177,7 +186,7 @@ h1 {{ font-size:22px; margin:0 0 4px; }} h2 {{ font-size:15px; margin:0 0 14px; 
 a {{ color:inherit; }} footer {{ margin-top:24px; font-size:12px; color:var(--muted); }}
 </style></head><body><main>
 <h1>Service desk IT : indicateurs</h1>
-<p class="muted">Projet {html.escape(project)} · mis à jour le {now} · <a href="{html.escape(queue_url)}">ouvrir les files d'attente</a></p>
+<p class="muted">{" · ".join(meta)}</p>
 <section class="tiles">{tiles_html}</section>
 <section class="grid">
   <div class="card"><h2>Tickets par catégorie</h2>{bars}
@@ -191,19 +200,25 @@ a {{ color:inherit; }} footer {{ margin-top:24px; font-size:12px; color:var(--mu
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--open", action="store_true", help="ouvre le tableau de bord dans le navigateur")
+    parser.add_argument("--depuis", metavar="'AAAA-MM-JJ HH:MM'", help="ne compte que les tickets créés depuis cette date")
+    parser.add_argument("--public", action="store_true", help="écrit docs/index.html, sans lien vers le site Jira")
     args = parser.parse_args()
 
     from jira_client import Jira
 
     jira = Jira.from_env()
     project = os.environ["JIRA_PROJECT"]
-    issues = jira.search(f"project = {project}", fields=("created", "labels", "comment", "status"))
+    jql = f'project = {project} AND created >= "{args.depuis}"' if args.depuis else f"project = {project}"
+    issues = jira.search(jql, fields=("created", "labels", "comment", "status"))
     k = compute(issues)
     print_summary(k)
-    OUTPUT.write_text(render_html(k, os.environ["JIRA_URL"], project), encoding="utf-8")
-    print(f"\nTableau de bord : {OUTPUT}")
+    output = PUBLIC_OUTPUT if args.public else OUTPUT
+    output.parent.mkdir(exist_ok=True)
+    site_url = None if args.public else os.environ["JIRA_URL"]
+    output.write_text(render_html(k, site_url, project, args.depuis), encoding="utf-8")
+    print(f"\nTableau de bord : {output}")
     if args.open:
-        webbrowser.open(OUTPUT.as_uri())
+        webbrowser.open(output.as_uri())
 
 
 if __name__ == "__main__":

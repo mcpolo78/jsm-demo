@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Service desk IT – indicateurs</title>
+<style>
+:root { --bg:#f7f7f5; --card:#fff; --text:#1f2328; --muted:#6b7078; --line:#e4e4e0;
+  --auto:#2f7d5b; --agent:#c7882b; --other:#b9bcc2; }
+@media (prefers-color-scheme: dark) { :root { --bg:#16181b; --card:#1f2226; --text:#e8e8e6;
+  --muted:#9aa0a8; --line:#30343a; --auto:#4fb487; --agent:#e0a64a; --other:#5a5f67; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+main { max-width:1040px; margin:0 auto; padding:28px 16px 48px; }
+h1 { font-size:22px; margin:0 0 4px; } h2 { font-size:15px; margin:0 0 14px; }
+.muted, .s, .t { color:var(--muted); } .muted { margin:0 0 24px; }
+.tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:20px; }
+.tile, .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+.t { font-size:13px; } .v { font-size:26px; font-weight:650; font-variant-numeric:tabular-nums; } .s { font-size:12px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px; }
+.row { display:grid; grid-template-columns:130px 1fr 32px; align-items:center; gap:10px; margin:8px 0; font-size:14px; }
+.track { display:flex; height:14px; border-radius:4px; overflow:hidden; }
+.art { grid-template-columns:minmax(0,1.4fr) 1fr 32px; } .art .lbl { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.seg { display:block; height:100%; } .auto { background:var(--auto); } .agent { background:var(--agent); } .other { background:var(--other); }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+.legend { display:flex; gap:16px; font-size:12px; color:var(--muted); margin-top:10px; flex-wrap:wrap; }
+.legend i { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; vertical-align:-1px; }
+a { color:inherit; } footer { margin-top:24px; font-size:12px; color:var(--muted); }
+</style></head><body><main>
+<h1>Service desk IT : indicateurs</h1>
+<p class="muted">Projet IT · tickets créés depuis le 2026-10-23 17:36 · mis à jour le 23/10/2026 17:42</p>
+<section class="tiles"><div class='tile'><div class='t'>Tickets reçus</div><div class='v'>12</div><div class='s'>12 ouverts</div></div><div class='tile'><div class='t'>Triés par l'IA</div><div class='v'>100 %</div><div class='s'>12 tickets</div></div><div class='tile'><div class='t'>Résolus sans intervention</div><div class='v'>33 %</div><div class='s'>4 réponses automatiques</div></div><div class='tile'><div class='t'>Suggestions agent</div><div class='v'>8</div><div class='s'>à valider par un technicien</div></div><div class='tile'><div class='t'>Délai médian accusé</div><div class='v'>10 s</div><div class='s'>création → 1er message</div></div><div class='tile'><div class='t'>Délai médian réponse IA</div><div class='v'>44 s</div><div class='s'>création → procédure envoyée</div></div></section>
+<section class="grid">
+  <div class="card"><h2>Tickets par catégorie</h2><div class="row"><span class="lbl">Accès et comptes</span>
+        <span class="track"><span class="seg auto" style="width:33.3%"></span><span class="seg agent" style="width:33.3%"></span><span class="seg other" style="width:0.0%"></span></span>
+        <span class="num">2</span></div><div class="row"><span class="lbl">Messagerie</span>
+        <span class="track"><span class="seg auto" style="width:0.0%"></span><span class="seg agent" style="width:66.7%"></span><span class="seg other" style="width:0.0%"></span></span>
+        <span class="num">2</span></div><div class="row"><span class="lbl">Réseau</span>
+        <span class="track"><span class="seg auto" style="width:33.3%"></span><span class="seg agent" style="width:33.3%"></span><span class="seg other" style="width:0.0%"></span></span>
+        <span class="num">2</span></div><div class="row"><span class="lbl">Impression</span>
+        <span class="track"><span class="seg auto" style="width:33.3%"></span><span class="seg agent" style="width:0.0%"></span><span class="seg other" style="width:0.0%"></span></span>
+        <span class="num">1</span></div><div class="row"><span class="lbl">Matériel</span>
+        <span class="track"><span class="seg auto" style="width:33.3%"></span><span class="seg agent" style="width:66.7%"></span><span class="seg other" style="width:0.0%"></span></span>
+        <span class="num">3</span></div><div class="row"><span class="lbl">Logiciels</span>
+        <span class="track"><span class="seg auto" style="width:0.0%"></span><span class="seg agent" style="width:66.7%"></span><span class="seg other" style="width:0.0%"></span></span>
+        <span class="num">2</span></div>
+    <div class="legend"><span><i class="auto"></i>Résolu par l'IA</span><span><i class="agent"></i>Suggestion agent</span><span><i class="other"></i>Pas encore traité</span></div></div>
+  <div class="card"><h2>Articles les plus utilisés</h2><div class="row art"><span class="lbl" title="Écran externe non détecté sur la station d&#x27;accueil">KB-13 · Écran externe non détecté sur la station d&#x27;accueil</span><span class="track"><span class="seg auto" style="width:100.0%"></span></span><span class="num">2</span></div><div class="row art"><span class="lbl" title="Teams reste sur un écran blanc">KB-18 · Teams reste sur un écran blanc</span><span class="track"><span class="seg auto" style="width:50.0%"></span></span><span class="num">1</span></div><div class="row art"><span class="lbl" title="Installer un logiciel">KB-16 · Installer un logiciel</span><span class="track"><span class="seg auto" style="width:50.0%"></span></span><span class="num">1</span></div><div class="row art"><span class="lbl" title="PC lent ou qui chauffe">KB-14 · PC lent ou qui chauffe</span><span class="track"><span class="seg auto" style="width:50.0%"></span></span><span class="num">1</span></div><div class="row art"><span class="lbl" title="L&#x27;imprimante affiche un bourrage ou ne répond plus">KB-11 · L&#x27;imprimante affiche un bourrage ou ne répond plus</span><span class="track"><span class="seg auto" style="width:50.0%"></span></span><span class="num">1</span></div><div class="row art"><span class="lbl" title="Problème de Wi-Fi dans une salle de réunion">KB-09 · Problème de Wi-Fi dans une salle de réunion</span><span class="track"><span class="seg auto" style="width:50.0%"></span></span><span class="num">1</span></div></div>
+</section>
+<footer>Généré par kpis.py depuis l'API Jira. Tri : Ollama (qwen2.5:7b). Recherche : TF-IDF + embeddings (nomic-embed-text).</footer>
+</main></body></html>

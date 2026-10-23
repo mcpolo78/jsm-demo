@@ -15,6 +15,12 @@ Sur 20 tickets réalistes (accès, messagerie, réseau, impression, matériel, l
 
 Le détail des mesures, avec 12 tickets reformulés en langage courant, est dans [RESULTATS-RECHERCHE.md](RESULTATS-RECHERCHE.md).
 
+### Tableau de bord
+
+[![Tableau de bord des indicateurs](docs/dashboard.png)](https://mcpolo78.github.io/jsm-demo/)
+
+Mesure en conditions réelles ([page en ligne](https://mcpolo78.github.io/jsm-demo/)) : 12 tickets reformulés en langage courant arrivent un toutes les 30 s pendant que `pipeline.py` tourne (`simulate_arrivals.py`). Médianes : accusé de réception en **10 s**, réponse de l'IA en **44 s**. L'IA a répondu seule à 4 tickets et a transmis les 8 autres à un agent avec une suggestion : sur ces formulations difficiles, elle passe la main plutôt que de risquer une mauvaise réponse (0 réponse erronée).
+
 ## Comment ça marche
 
 ```mermaid
@@ -37,6 +43,7 @@ flowchart LR
 | `suggest_replies.py` | Trouve l'article le plus proche (TF-IDF + embeddings), fait rédiger la réponse par l'IA à partir de l'article uniquement, puis décide entre réponse automatique et suggestion pour un agent |
 | `kpis.py` | Calcule les indicateurs depuis Jira et génère `dashboard.html` |
 | `pipeline.py` | Enchaîne toute la chaîne en boucle, pour une démo en direct |
+| `simulate_arrivals.py` | Crée des tickets un par un, à intervalle régulier, pour mesurer les délais en conditions réelles |
 
 ### Garde-fous
 
