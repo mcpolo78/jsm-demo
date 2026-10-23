@@ -1,0 +1,21 @@
+summary,description,request_type,priority,expected_category,expected_kb
+Impossible de me connecter à ma session Windows,"Depuis ce matin j'ai le message ""mot de passe incorrect"" alors que je n'ai rien changé. Je suis bloqué, je ne peux pas travailler.",Incident,High,Accès et comptes,KB-01
+Compte verrouillé après plusieurs tentatives,Mon compte AD est verrouillé après 3 essais. Pouvez-vous le débloquer ? Poste PC-RUE-0142.,Incident,High,Accès et comptes,KB-02
+Demande d'accès au dossier partagé Finance,Bonjour je viens d'intégrer l'équipe Finance et j'ai besoin d'un accès en lecture/écriture au partage \\srv-fic\finance. Validation de mon manager : M. Durand.,Service request,Medium,Accès et comptes,KB-03
+Création de compte pour un nouvel arrivant,"Nouvel arrivant lundi prochain : Julie Martin, service Achats. Merci de créer son compte, sa boîte mail et ses accès Teams.",Service request,Medium,Accès et comptes,KB-04
+Outlook ne reçoit plus les mails,Outlook reste bloqué sur « Mise à jour du dossier » et aucun nouveau mail n'arrive depuis 10h. Le webmail fonctionne.,Incident,High,Messagerie,KB-05
+Boîte mail pleine,J'ai un message qui dit que ma boîte aux lettres a atteint sa limite. Comment libérer de l'espace ?,Incident,Low,Messagerie,KB-06
+Ajouter une signature mail aux couleurs du groupe,Où puis-je récupérer la signature mail officielle et comment l'installer dans Outlook ?,Service request,Low,Messagerie,KB-07
+Le VPN se déconnecte toutes les 5 minutes,En télétravail le VPN FortiClient se coupe sans arrêt. Ma connexion internet est stable par ailleurs.,Incident,High,Réseau,KB-08
+Pas de Wi-Fi en salle de réunion B2,Aucun appareil n'arrive à se connecter au Wi-Fi CORP dans la salle B2. Réunion client à 14h.,Incident,Critical,Réseau,KB-09
+Internet très lent au 3e étage,Depuis hier la navigation est très lente pour tout le plateau du 3e étage.,Incident,Medium,Réseau,KB-10
+L'imprimante du 2e étage n'imprime plus,L'imprimante HP du couloir affiche « bourrage papier » alors qu'il n'y a pas de papier coincé.,Incident,Medium,Impression,KB-11
+Installer une imprimante réseau sur mon poste,Je viens de changer de bureau et je dois ajouter l'imprimante PRT-3-NORD sur mon PC.,Service request,Low,Impression,KB-12
+Écran externe non détecté,Mon deuxième écran n'est plus détecté depuis que j'ai branché mon portable sur la station d'accueil.,Incident,Medium,Matériel,KB-13
+Demande de casque audio pour Teams,Je fais beaucoup de visios et je n'ai pas de casque. Est-il possible d'en obtenir un ?,Service request,Low,Matériel,KB-15
+Ordinateur portable très lent et chaud,Mon laptop met 10 minutes à démarrer et le ventilateur tourne en permanence.,Incident,Medium,Matériel,KB-14
+Écran du portable cassé,J'ai fait tomber mon ordinateur et l'écran est fissuré. J'ai une présentation demain.,Incident,High,Matériel,KB-15
+Installer Power BI Desktop,J'ai besoin de Power BI Desktop pour un projet de reporting. Mon poste ne me laisse pas installer de logiciel.,Service request,Medium,Logiciels,KB-16
+Excel plante à l'ouverture d'un fichier,Excel se ferme tout seul dès que j'ouvre le fichier budget_2026.xlsx. Les autres fichiers marchent.,Incident,Medium,Logiciels,KB-17
+Teams affiche un écran blanc,Au lancement Teams reste sur un écran blanc. J'ai déjà redémarré le PC.,Incident,Medium,Logiciels,KB-18
+Licence Adobe Acrobat Pro expirée,Acrobat me demande de me reconnecter et indique que ma licence a expiré. J'en ai besoin pour signer des contrats.,Service request,Medium,Logiciels,KB-19

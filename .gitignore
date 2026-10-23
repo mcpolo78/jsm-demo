@@ -1,0 +1,8 @@
+.env
+__pycache__/
+.venv/
+kb/.embeddings.json
+dashboard.html
+*.zip
+DEMO.md
+GUIDE-ETAPE1.md

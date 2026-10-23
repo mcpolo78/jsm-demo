@@ -1,0 +1,13 @@
+summary,description,expected_category,expected_kb
+J'arrive plus à rentrer sur mon ordi,Ce matin Windows me refuse l'entrée alors que je tape le même code que d'habitude.,Accès et comptes,KB-01
+Bloqué après plusieurs essais,J'ai raté mon code trois fois et maintenant plus rien ne marche à l'écran d'accueil.,Accès et comptes,KB-02
+Besoin des droits sur le répertoire RH,Mon manager est d'accord pour que je puisse modifier les fichiers du répertoire commun RH.,Accès et comptes,KB-03
+Je ne vois plus aucun nouveau message,Ma messagerie sur le PC est figée depuis ce matin mais sur le téléphone les messages arrivent.,Messagerie,KB-05
+Alerte de quota dépassé,On me dit que je ne peux plus envoyer de messages car je n'ai plus de place.,Messagerie,KB-06
+Coupures en travaillant de chez moi,Depuis chez moi la connexion à l'entreprise saute sans arrêt et je perds mes fichiers ouverts.,Réseau,KB-08
+Rien ne se connecte dans la salle Jupiter,Les invités de la réunion et moi n'avons aucun accès sans fil dans la salle Jupiter.,Réseau,KB-09
+La photocopieuse fait des siennes,Elle clignote orange et dit que le papier est coincé mais je ne vois rien.,Impression,KB-11
+Mon PC rame,Tout est au ralenti et ça souffle fort dès que j'ouvre deux applis.,Matériel,KB-14
+Mon deuxième moniteur reste noir,Quand je pose mon portable sur le dock le moniteur de droite ne s'allume pas.,Matériel,KB-13
+Il me faut un outil de reporting,Je dois installer l'outil de tableaux de bord Microsoft mais l'installation est refusée.,Logiciels,KB-16
+L'appli de visio ne s'affiche pas,Au démarrage la fenêtre de l'outil de réunion reste toute blanche.,Logiciels,KB-18
