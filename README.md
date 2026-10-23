@@ -17,9 +17,9 @@ Le détail des mesures, avec 12 tickets reformulés en langage courant, est dans
 
 ### Tableau de bord
 
-[![Tableau de bord des indicateurs](docs/dashboard.png)](https://mcpolo78.github.io/jsm-demo/)
+![Tableau de bord des indicateurs](docs/dashboard.png)
 
-Mesure en conditions réelles ([page en ligne](https://mcpolo78.github.io/jsm-demo/)) : 12 tickets reformulés en langage courant arrivent un toutes les 30 s pendant que `pipeline.py` tourne (`simulate_arrivals.py`). Médianes : accusé de réception en **10 s**, réponse de l'IA en **44 s**. L'IA a répondu seule à 4 tickets et a transmis les 8 autres à un agent avec une suggestion : sur ces formulations difficiles, elle passe la main plutôt que de risquer une mauvaise réponse (0 réponse erronée).
+Mesure en conditions réelles : 12 tickets reformulés en langage courant arrivent un toutes les 30 s pendant que `pipeline.py` tourne (`simulate_arrivals.py`). Médianes : accusé de réception en **10 s**, réponse de l'IA en **44 s**. L'IA a répondu seule à 4 tickets et a transmis les 8 autres à un agent avec une suggestion : sur ces formulations difficiles, elle passe la main plutôt que de risquer une mauvaise réponse (0 réponse erronée).
 
 ## Comment ça marche
 
